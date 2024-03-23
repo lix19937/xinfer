@@ -1,2 +1,2 @@
 # xinfer  
-cpp 推理引擎    
+自研 cpp 推理引擎      
