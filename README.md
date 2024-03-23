@@ -1,6 +1,7 @@
 # xinfer  推理引擎     
 + 自研  
-+ cpp/cu     
++ cpp/cu
++ 单级SSA IR   
 + 细粒度算子   
 + 静态图模式         
 
