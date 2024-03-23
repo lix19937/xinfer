@@ -19,7 +19,7 @@
 |数据结构  |说明|其他|  
 |----     |--- |----|  
 |shape| 数据类型，各维度的大小，各维度的步长||   
-|argument|用来保存数据，类似Pytorch中的Tensor，常用来保存模型的输入和输出数据||   
+|argument|用来保存数据，类似torch中的Tensor，常用来保存模型的输入和输出数据||   
 |literal|常量，比如可以使用literal表示卷积的权重。实际上literal是一种特殊的argument，literal中的值不能修改，而argument中的值可以修改。||   
 |instruction|表示指令，可以通过module中的add_instruction()成员函数添加指令。相当于ONNX模型中的一个节点或者torch模型中的一个layer。指令由操作符(算子)和操作数组成。||   
 |module|表示子图，每个子图又是由指令组成。创建program的时候，会自动创建一个主计算图，可以通过program的 `get_main_module()`获取主计算图。|   |     
