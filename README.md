@@ -3,8 +3,7 @@
 
 |模块|说明|备注 |   
 |--- |---|----|  
-|IR-onnx |外部输入|-|  
-|IR-Xir  |内部表示|-|    
+|parser | IR-onnx外部输入 <br>IR-xir内部表示 |-|  
 |optimizer  |死代码消除<br>算子融合<br>常量折叠<br>内存优化<br>指令调度<br>算子等价|-|     
 |计算后端|cpu/gpu|  
 
