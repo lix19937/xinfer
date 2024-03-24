@@ -27,7 +27,7 @@
 |module     |子图，每个子图又是由指令组成。创建program的时候，会自动创建一个主计算图，可以通过program的 `get_main_module()`获取主计算图。<br><br>成员函数：<br>`add_parameter();`添加模型的输入<br>`add_literal();`添加常量，比如可以使用该成员函数添加卷积算子的权重<br>`add_instruction();`添加指令，除了输入，常量和结束指令之外的其他指令<br>`add_return();`添加结束指令，通常表示模型的结尾<br>注意：add_parameter(), add_literal(), add_return()添加的是模型中特殊的指令，这些指令不能使用add_instruction()添加<br>上述所有添加指令的成员函数返回添加的这条指令的引用|      
 |program    |一个神经网络模型<br><br>成员函数：<br>`compile();`编译模型，其参数是一个target<br>`eval();`执行推理并返回推理结果，返回类型为std::vector，注意这是一个同步的方法<br>`get_inputs();`返回模型的输入节点信息，每个输入节点包含输入名和输入shape<br>`get_outputs();` 返回模型的输出节点信息，每个输出节点包含输出名和输出shape<br>`get_memory_usage();`返回模型推理需要的显存大小，单位为字节<br>注意：如果需要在不同的线程中使用xinfer推理，不同线程不能共用同一个program对象，每个线程需要单独创建一个program对象执行推理|        
 |target     |支持的硬件平台，CPU和GPU，在编译模型的时候，需要指定一个target |     
-|passes|对 `program` 中的指令进行变换的接口，有以下接口<br<br>dead_code_elimination<br>eliminate_common_subexpression<br>eliminate_concat<br>eliminate_contiguous<br>eliminate_identity<br>eliminate_pad<br>propagate_constant<br>rewrite_rnn<br>schedule<br>simplify_algebra<br>simplify_reshapes|   
+|passes|对 `program` 中的指令进行变换的接口，有以下接口<br<br>`dead_code_elimination`<br>`eliminate_common_subexpression`<br>`eliminate_concat`<br>`eliminate_contiguous`<br>`eliminate_identity`<br>`eliminate_pad`<br>`propagate_constant`<br>`rewrite_rnn`<br>`schedule`<br>`simplify_algebra`<br>`simplify_reshapes`|   
 
 
 
