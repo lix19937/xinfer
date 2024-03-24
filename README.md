@@ -15,7 +15,7 @@
 |parser | IR-onnx外部输入 <br>IR-xir内部表示 |源码集成到 libxinfer.so <br><br> 支持解析完导出为文件（json/MessagePack）|  
 |compile/optimizer  |删除公共子表达式<br>死代码消除<br>算子融合<br>常量传播<br>常量折叠<br>代数化简<br><br>内存优化，如内存复用-图着色的方法实现无计算依赖的节点间的内存复用，显著减低内存消耗<br><br>指令调度-根据计算图分析指令之间的依赖关系，根据这些依赖关系优化各指令的执行顺序<br><br>算子等价| 源码集成到 libxinfer.so|     
 |计算后端|cpu/gpu 基于硬件的各op的实现| 源码集成到 libxinfer.so |   
-|引擎生成与分析工具 | `类似trtexec` <br>对模型进行序列化<br>性能分析<br>查看模型的输入输出节点信息<br>查看版本信息<br>查看支持的ONNX算子<br>查看模型的计算图 |命令行工具 |     
+|引擎生成与分析工具 | `类似trtexec` <br>对模型进行序列化<br>性能分析<br>查看模型的输入输出节点信息<br>查看版本信息<br>查看支持的ONNX算子<br>查看模型的计算图 <br>`read` Loads and prints input graph.<br>`compile` Compiles and prints input graph.<br>`run` Loads and prints input graph.<br>`perf` Compiles and runs input graph then prints performance report.<br>`verify` Runs reference and CPU or GPU implementations and checks outputs for consistency.<br>`roctx` Provides marker information for each operation, allowing xinfer to be used with rocprof for performance analysis. This allows user to get GPU-level kernel timing information. |命令行工具 |     
 ## 结构设计   
 |数据结构  |说明|   
 |----     |--- |    
@@ -28,6 +28,8 @@
 |program    |一个神经网络模型<br><br>成员函数：<br>`compile();`编译模型，其参数是一个target<br>`eval();`执行推理并返回推理结果，返回类型为std::vector，注意这是一个同步的方法<br>`get_inputs();`返回模型的输入节点信息，每个输入节点包含输入名和输入shape<br>`get_outputs();` 返回模型的输出节点信息，每个输出节点包含输出名和输出shape<br>`get_memory_usage();`返回模型推理需要的显存大小，单位为字节<br>注意：如果需要在不同的线程中使用xinfer推理，不同线程不能共用同一个program对象，每个线程需要单独创建一个program对象执行推理|        
 |target     |支持的硬件平台，CPU和GPU，在编译模型的时候，需要指定一个target |     
 |passes|对 `program` 中的指令进行变换的接口，有以下接口<br><br>`dead_code_elimination`<br>`eliminate_common_subexpression`<br>`eliminate_concat`<br>`eliminate_contiguous`<br>`eliminate_identity`<br>`eliminate_pad`<br>`propagate_constant`<br>`rewrite_rnn`<br>`schedule`<br>`simplify_algebra`<br>`simplify_reshapes`|   
+
+
 
 
 
