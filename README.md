@@ -4,7 +4,8 @@
 + cpp/cu
 + 单级SSA IR   
 + 细粒度算子    
-+ 静态图模式          
++ 静态图模式
++ 支持dynamic shape     
 + 支持 CNN   
 + 支持 LLM   
   
