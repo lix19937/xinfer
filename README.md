@@ -1,5 +1,5 @@
 # xinfer  推理引擎     
-## 特色   
+## 特性       
 + 自研  
 + cpp/cu
 + 单级SSA IR   
