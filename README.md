@@ -16,7 +16,9 @@
 - [x] 静态图模式
 - [x] 支持dynamic shape     
 - [x] 支持 CNN   
-- [ ] 支持 LLM   
+- [ ] 支持 LLM
+- [x] 支持 onnx输入     
+- [ ] 支持 torch输入
   
 ## 模块设计    
 |模块|说明|备注 |   
