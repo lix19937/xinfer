@@ -9,13 +9,14 @@
 
 
 ## 特性       
-+ cpp/cu
-+ 单级SSA IR   
-+ 细粒度算子    
-+ 静态图模式
-+ 支持dynamic shape     
-+ 支持 CNN   
-+ 支持 LLM   
+- [ ] cpp   
+- [ ] cu
+- [ ] 单级SSA IR   
+- [ ] 细粒度算子    
+- [ ] 静态图模式
+- [ ] 支持dynamic shape     
+- [ ] 支持 CNN   
+- [ ] 支持 LLM   
   
 ## 模块设计    
 |模块|说明|备注 |   
